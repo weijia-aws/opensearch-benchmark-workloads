@@ -56,12 +56,6 @@
         {% endwith %}
         {{ benchmark.collect(parts="../../common_operations/check_cluster_health.json") }},
         {
-          "operation": "index-append",
-          "warmup-time-period": 60,
-          "clients": {{bulk_indexing_clients | default(1)}},
-          "ignore-response-error-level": "{{error_level | default('non-fatal')}}"
-        },
-        {
           "name": "refresh-after-index",
           "operation": "refresh"
         },
